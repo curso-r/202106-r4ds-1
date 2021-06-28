@@ -25,8 +25,8 @@ Fora do horário de aula ou monitoria:
 
 | slide                              | link                                                                       |
 | :--------------------------------- | :------------------------------------------------------------------------- |
-| slides/00-preamble.html            | <https://curso-r.github.io/main-r4ds-1/slides/00-preamble.html>            |
 | slides/01-introducao-ao-curso.html | <https://curso-r.github.io/main-r4ds-1/slides/01-introducao-ao-curso.html> |
+| slides/02-introducao-ao-r.html     | <https://curso-r.github.io/main-r4ds-1/slides/02-introducao-ao-r.html>     |
 
 ## Scripts utilizados em aula
 
