@@ -52,10 +52,11 @@ Fora do horário de aula ou monitoria:
 
 ## Lição de casa extra 🤓
 
-| Aula | Descrição                                                                              |
-|-----:|:---------------------------------------------------------------------------------------|
-|    1 | [Ler o Capítulo 2 - RStudio do nosso livro](https://livro.curso-r.com/2-rstudio.html)  |
-|    1 | [Ler o Capítulo 3 - R Básico, do nosso livro](https://livro.curso-r.com/3-r-base.html) |
+| Aula | Descrição                                                                                                               |
+|-----:|:------------------------------------------------------------------------------------------------------------------------|
+|    1 | [Ler o Capítulo 2 - RStudio do nosso livro](https://livro.curso-r.com/2-rstudio.html)                                   |
+|    1 | [Ler as seções 3.4 à 3.10 do nosso livro](https://livro.curso-r.com/3-4-data-frames.html)                               |
+|    1 | [Fazer exercícios das seções 3.7, 3.8 e 3.10](https://livro.curso-r.com/3-7-testes-l%C3%B3gicos.html#exerc%C3%ADcios-4) |
 
 ## Material extra
 
