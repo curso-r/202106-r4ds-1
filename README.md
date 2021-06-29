@@ -43,13 +43,19 @@ Fora do horário de aula ou monitoria:
 
 ## Lição de casa
 
-| Aula | Descrição |
-|:-----|:----------|
+| Aula | Descrição                                                                                                |
+|-----:|:---------------------------------------------------------------------------------------------------------|
+|    1 | [Exercícios — R como calculadora](https://livro.curso-r.com/3-2-r-como-calculadora.html#exerc%C3%ADcios) |
+|    1 | [Exercícios — Objetos](https://livro.curso-r.com/3-3-objetosfuncoes#exerc%C3%ADcios-1)                   |
+|    1 | [Ler a seção Vetores do nosso livro](https://livro.curso-r.com/3-6-vetores.html)                         |
+|    1 | [Exercícios — Vetores](https://livro.curso-r.com/3-6-vetores.html#exerc%C3%ADcios-3)                     |
 
 ## Lição de casa extra 🤓
 
-| Aula | Descrição |
-|:-----|:----------|
+| Aula | Descrição                                                                              |
+|-----:|:---------------------------------------------------------------------------------------|
+|    1 | [Ler o Capítulo 2 - RStudio do nosso livro](https://livro.curso-r.com/2-rstudio.html)  |
+|    1 | [Ler o Capítulo 3 - R Básico, do nosso livro](https://livro.curso-r.com/3-r-base.html) |
 
 ## Material extra
 
