@@ -7,46 +7,48 @@
 aqui](https://github.com/curso-r/main-r4ds-1/raw/master/material_do_curso.zip)
 para baixar o material do curso.
 
-  - R for Data Science: <https://r4ds.had.co.nz/> (em inglês) e
+-   R for Data Science: <https://r4ds.had.co.nz/> (em inglês) e
     <https://es.r4ds.hadley.nz/> (em espanhol).
 
-  - Nosso blog: <https://curso-r.com/blog/>
+-   Nosso blog: <https://curso-r.com/blog/>
 
 ## Dúvidas
 
 Fora do horário de aula ou monitoria:
 
-  - perguntas gerais sobre o curso deverão ser feitas no Classroom.
+-   perguntas gerais sobre o curso deverão ser feitas no Classroom.
 
-  - perguntas sobre R, principalmente as que envolverem código, deverão
+-   perguntas sobre R, principalmente as que envolverem código, deverão
     ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
 
 ## Slides
 
 | slide                              | link                                                                       |
-| :--------------------------------- | :------------------------------------------------------------------------- |
+|:-----------------------------------|:---------------------------------------------------------------------------|
 | slides/01-introducao-ao-curso.html | <https://curso-r.github.io/main-r4ds-1/slides/01-introducao-ao-curso.html> |
 | slides/02-introducao-ao-r.html     | <https://curso-r.github.io/main-r4ds-1/slides/02-introducao-ao-r.html>     |
+| slides/03-importacao.html          | <https://curso-r.github.io/main-r4ds-1/slides/03-importacao.html>          |
 
 ## Scripts utilizados em aula
 
 ### Parte teórica
 
 | script               | link                                                                   |
-| :------------------- | :--------------------------------------------------------------------- |
+|:---------------------|:-----------------------------------------------------------------------|
 | 01-introducao-ao-R.R | <https://curso-r.github.io/202106-r4ds-1/scripts/01-introducao-ao-R.R> |
 | 02-importacao.R      | <https://curso-r.github.io/202106-r4ds-1/scripts/02-importacao.R>      |
 
 ### Parte prática
 
-| script             | link                                                                 |
-| :----------------- | :------------------------------------------------------------------- |
-| 01-rbase-pratica.R | <https://curso-r.github.io/202106-r4ds-1/pratica/01-rbase-pratica.R> |
+| script                  | link                                                                      |
+|:------------------------|:--------------------------------------------------------------------------|
+| 01-rbase-pratica.R      | <https://curso-r.github.io/202106-r4ds-1/pratica/01-rbase-pratica.R>      |
+| 02-importacao-pratica.R | <https://curso-r.github.io/202106-r4ds-1/pratica/02-importacao-pratica.R> |
 
 ## Lição de casa
 
 | Aula | Descrição                                                                                                |
-| ---: | :------------------------------------------------------------------------------------------------------- |
+|-----:|:---------------------------------------------------------------------------------------------------------|
 |    1 | [Exercícios — R como calculadora](https://livro.curso-r.com/3-2-r-como-calculadora.html#exerc%C3%ADcios) |
 |    1 | [Exercícios — Objetos](https://livro.curso-r.com/3-3-objetosfuncoes#exerc%C3%ADcios-1)                   |
 |    1 | [Ler a seção Vetores do nosso livro](https://livro.curso-r.com/3-6-vetores.html)                         |
@@ -57,7 +59,7 @@ Fora do horário de aula ou monitoria:
 ## Lição de casa extra 🤓
 
 | Aula | Descrição                                                                                                               |
-| ---: | :---------------------------------------------------------------------------------------------------------------------- |
+|-----:|:------------------------------------------------------------------------------------------------------------------------|
 |    1 | [Ler o Capítulo 2 - RStudio do nosso livro](https://livro.curso-r.com/2-rstudio.html)                                   |
 |    1 | [Ler as seções 3.4 à 3.10 do nosso livro](https://livro.curso-r.com/3-4-data-frames.html)                               |
 |    1 | [Fazer exercícios das seções 3.7, 3.8 e 3.10](https://livro.curso-r.com/3-7-testes-l%C3%B3gicos.html#exerc%C3%ADcios-4) |
@@ -70,7 +72,7 @@ quando tiramos dúvidas (não necessariamente são relacionadas com o
 conteúdo da aula).
 
 | Aula | Tema        | Descrição                                                                                                                                                         |
-| ---: | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----:|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    0 | Instalação  | [Capítulo do livro “Ciência de Dados em R”: Instalação](https://livro.curso-r.com/1-instalacao.html)                                                              |
 |    1 | Curso-R     | [Blog da Curso-R](https://blog.curso-r.com/)                                                                                                                      |
 |    1 | Curso-R     | [Canal no Youtube - Lives nas quartas-feiras às 20h](https://www.youtube.com/c/CursoR6/featured)                                                                  |
@@ -87,7 +89,6 @@ conteúdo da aula).
 |    2 | Importação  | [Integração com banco de dados](https://youtu.be/Es8H2LjfikY)                                                                                                     |
 |    2 | Importação  | [Capítulo do livro “Zen do R”: Rproj e diretórios](https://curso-r.github.io/zen-do-r/rproj-dir.html)                                                             |
 |    2 | Importação  | [Folha de cola (cheatsheet): Importação](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf)                                            |
-|    2 | Pipe        | [Capítulo do livro “Ciência de Dados em R”: Pipe](https://livro.curso-r.com/6-pipe.html)                                                                          |
 
 ## Redes sociais da Curso-R
 
