@@ -97,25 +97,19 @@ readxl::read_excel("tab_exercicios.xlsx") %>%
 
 ## Material extra
 
-Referências extras comentadas nas aulas.
+Referências extras comentadas nas aulas, ou materiais que comentamos quando tiramos dúvidas (não necessariamente são relacionadas com o conteúdo da aula).
 
-```{r}
-readxl::read_excel("referencias_extras.xlsx") %>%
-  dplyr::filter(aula <= num_aula, tema != "Conversa/Dúvidas") %>% 
+```{r echo=FALSE, message=FALSE}
+googlesheets4::gs4_deauth()
+"1SmCKCvJBff3CVty-xYKJ4NhEo2j6sUwkdET46vQisDY" %>% 
+  googledrive::as_id() %>% 
+  googlesheets4::read_sheet(main_repo) %>%
   dplyr::mutate(link = glue::glue("[{desc}]({url})")) %>%
   dplyr::select(-desc, -url) %>%
-  dplyr::arrange(num_aula) %>% 
-  knitr::kable(col.names = c("Aula", "Tema", "Descrição"))
-```
+  dplyr::arrange(aula) %>% 
+  dplyr::filter(aula <= num_aula) %>% 
+  knitr::kable(col.names = c("Aula", "Tema", "Descrição")) 
 
-Materiais que comentamos quando tiramos dúvidas (não necessariamente são relacionadas com o conteúdo da aula).
-
-```{r}
-readxl::read_excel("referencias_extras.xlsx") %>%
-  dplyr::filter(aula <= num_aula, tema == "Conversa/Dúvidas") %>% 
-  dplyr::mutate(link = glue::glue("[{desc}]({url})")) %>%
-  dplyr::select(-desc, -url) %>%
-  knitr::kable(col.names = c("Aula", "Tema", "Descrição"))
 ```
 
 ## Redes sociais da Curso-R
