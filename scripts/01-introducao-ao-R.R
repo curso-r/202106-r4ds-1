@@ -206,8 +206,10 @@ class(imdb)
 
 # Vetores são conjuntos de valores
 
+"1" + "1"
+
 vetor1 <- c(1, 4, 3, 10)
-vetor2 <- c("a", "b", "z")
+vetor2 <- c("a", "b", "z", "1")
 
 vetor1
 vetor2
@@ -279,6 +281,8 @@ vetor1  + vetor2
 # Pacotes -----------------------------------------------------------------
 
 # Para instalar pacotes
+
+CRAN
 
 install.packages("tidyverse")
 library(tidyverse)

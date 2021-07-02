@@ -8,7 +8,7 @@ library(tidyverse)
 # Caminhos relativos
 "dados/imdb.csv"
 
-# (cara(o) professora(o), favor lembrar de falar da dica 
+# (cara(o) professora(o), favor lembrar de falar da dica
 # de navegação entre as aspas)
 
 # Tibbles -----------------------------------------------------------------
