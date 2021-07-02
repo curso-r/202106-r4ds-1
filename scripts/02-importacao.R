@@ -94,21 +94,29 @@ readr::write_rds(imdb_rds, file = "dados/imdb_rds.rds")
 
 
 # EXTRA!
-# importando dados do google sheets -----------
+# Importando dados do google sheets -----------
 
+# link da base
 url <- "https://docs.google.com/spreadsheets/d/1y3oRSspAKQzLyAx2F3cpj89RiTI88wVf-hYZb4oRiuA/edit?usp=sharing"
 
+#install.packages("janitor")
 # install.packages("googlesheets4")
+
+# carregar pacotes
 library(googlesheets4)
 library(janitor)
 
+# ler a base
 dados_formulario <- read_sheet(url)
 
+
+# as colunas estão com nomes despadronizados
 # dados_formulario$`Em qual estado você mora?`
 
-#install.packages("janitor")
 
-dados_limpo <- clean_names(dados_formulario)
+# limpar o nome das colunas
+dados_limpo <- janitor::clean_names(dados_formulario)
 
+# agora as colunas estão limpas :)
 # dados_limpo$em_qual_estado_voce_mora
 
