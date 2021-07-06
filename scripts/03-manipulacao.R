@@ -1,5 +1,5 @@
 # Pacotes -----------------------------------------------------------------
-
+# install.packages("tidyverse")
 library(tidyverse)
 
 # Base de dados -----------------------------------------------------------
@@ -18,13 +18,16 @@ View(imdb)
 # arrange()   # reordena as linhas do data.frame
 # mutate()    # cria novas colunas no data.frame (ou atualiza as colunas existentes)
 # summarise() + group_by() # sumariza o data.frame
-# left_join   # junta dois data.frames
+# left_join()   # junta dois data.frames
+
 
 # select ------------------------------------------------------------------
 
 # Selcionando uma coluna da base
 
 select(imdb, titulo)
+
+# sinal de atribuicao: <-
 
 # A operação NÃO MODIFICA O OBJETO imdb
 
@@ -34,12 +37,23 @@ imdb
 
 select(imdb, titulo, ano, orcamento)
 
+# dá para mudar a ordem das colunas
+select(imdb, orcamento, ano, titulo)
+
+1:10
+
 select(imdb, titulo:cor)
 
 # Funções auxiliares
 
-select(imdb, starts_with("ator"))
+select(imdb, starts_with("ator_"))
 select(imdb, contains("to"))
+
+
+select(imdb, titulo, starts_with("ator_"))
+
+select(imdb, titulo, starts_with("ator_"), contains("ao"))
+
 
 # Principais funções auxiliares
 
@@ -51,9 +65,18 @@ select(imdb, contains("to"))
 
 select(imdb, -starts_with("ator"), -titulo, -ends_with("s"))
 
+
+# dúvidas
+
+select(imdb, titulo:cor, -ano)
+
+select(imdb, 1:5)
+
+imdb_selecionado <- select(imdb, titulo, orcamento, receita)
+
 # arrange -----------------------------------------------------------------
 
-# Ordenando linhas de forma crescente de acordo com 
+# Ordenando linhas de forma crescente de acordo com
 # os valores de uma coluna
 
 arrange(imdb, orcamento)
@@ -62,18 +85,24 @@ arrange(imdb, orcamento)
 
 arrange(imdb, desc(orcamento))
 
-# Ordenando de acordo com os valores 
+# Ordenando de acordo com os valores
 # de duas colunas
 
-arrange(imdb, desc(ano), orcamento)
+arrange(imdb, desc(ano))
+
+arrange(imdb, desc(ano), desc(orcamento))
 
 # O que acontece com o NA?
 
 df <- tibble(x = c(NA, 2, 1), y = c(1, 2, 3))
+df
 arrange(df, x)
 arrange(df, desc(x))
 
 # Pipe (%>%) --------------------------------------------------------------
+
+View(arrange(imdb, desc(ano), desc(orcamento)))
+
 
 # Transforma funçõe aninhadas em funções
 # sequenciais
@@ -83,7 +112,7 @@ arrange(df, desc(x))
 x %>% f() %>% g()   # CERTO
 x %>% f(x) %>% g(x) # ERRADO
 
-# Receita de bolo sem pipe. 
+# Receita de bolo sem pipe.
 # Tente entender o que é preciso fazer.
 
 esfrie(
@@ -93,24 +122,24 @@ esfrie(
         acrescente(
           recipiente(
             rep(
-              "farinha", 
+              "farinha",
               2
-            ), 
+            ),
             "água", "fermento", "leite", "óleo"
-          ), 
+          ),
           "farinha", até = "macio"
-        ), 
+        ),
         duração = "3min"
-      ), 
+      ),
       lugar = "forma", tipo = "grande", untada = TRUE
-    ), 
+    ),
     duração = "50min"
-  ), 
+  ),
   "geladeira", "20min"
 )
 
-# Veja como o código acima pode ser reescrito 
-# utilizando-se o pipe. 
+# Veja como o código acima pode ser reescrito
+# utilizando-se o pipe.
 # Agora realmente se parece com uma receita de bolo.
 
 recipiente(rep("farinha", 2), "água", "fermento", "leite", "óleo") %>%
@@ -122,9 +151,20 @@ recipiente(rep("farinha", 2), "água", "fermento", "leite", "óleo") %>%
 
 # ATALHO DO %>%: CTRL (command) + SHIFT + M
 
+View(arrange(imdb, desc(ano), desc(orcamento)))
+
+# reescreve com o pipe
+
+imdb_ordenado <- imdb %>%
+  arrange(desc(ano), desc(orcamento)) %>%
+  view() # view minusculo faz parte do tidyverse
+
+
 # Conceitos importantes para filtros! --------------------------------------
 
 ## Comparações lógicas -------------------------------
+
+x <- 1
 
 # Testes com resultado verdadeiro
 x == 1
@@ -155,11 +195,13 @@ x != 1
 x != 2
 
 x %in% c(1, 2, 3)
+
 "a" %in% c("b", "c")
+
 
 ## Operadores lógicos -------------------------------
 
-## & - E - Para ser verdadeiro, os dois lados 
+## & - E - Para ser verdadeiro, os dois lados
 # precisam resultar em TRUE
 
 x <- 5
@@ -169,7 +211,7 @@ x >= 3 & x <=7
 y <- 2
 y >= 3 & y <= 7
 
-## | - OU - Para ser verdadeiro, apenas um dos 
+## | - OU - Para ser verdadeiro, apenas um dos
 # lados precisa ser verdadeiro
 
 y <- 2
@@ -191,40 +233,61 @@ w <- 5
 
 # filter ------------------------------------------------------------------
 
+filter(imdb, nota_imdb > 9)
+
 # Filtrando uma coluna da base
-imdb %>% filter(nota_imdb > 9)
+imdb %>% filter(nota_imdb >= 9)
 imdb %>% filter(diretor == "Quentin Tarantino")
 
 # Vendo categorias de uma variável
 unique(imdb$cor) # saída é um vetor
 imdb %>% distinct(cor) # saída é uma tibble
 
+imdb %>% distinct(classificacao)
+
+imdb %>% distinct(diretor) %>% arrange(diretor) # %>% nrow()
+
+imdb$cor
+imdb %>% select(cor)
+
 # Filtrando duas colunas da base
 
 ## Recentes e com nota alta
-imdb %>% filter(ano > 2010, nota_imdb > 8.5)
+imdb %>% filter(ano > 2010, nota_imdb > 8.5) %>% View()
 imdb %>% filter(ano > 2010 & nota_imdb > 8.5)
 
 ## Gastaram menos de 100 mil, faturaram mais de 1 milhão
-imdb %>% filter(orcamento < 100000, receita > 1000000)
+imdb %>% filter(orcamento < 100000, receita > 1000000) %>% View()
 
 ## Lucraram
-imdb %>% filter(receita - orcamento > 0)
+imdb %>% filter(receita - orcamento > 0) %>% View()
 
 ## Lucraram mais de 500 milhões OU têm nota muito alta
-imdb %>% filter(receita - orcamento > 500000000 | nota_imdb > 9)
+imdb %>% filter(receita - orcamento > 500000000 | nota_imdb > 9) %>% View()
 
 # O operador %in%
-imdb %>% filter(ator_1 %in% c('Angelina Jolie Pitt', "Brad Pitt"))
+
+imdb %>% filter(ator_1 %in% c('Angelina Jolie Pitt', "Brad Pitt")) %>% View()
+
+
+
+# duvida
+pessoas_que_atuam <- c('Angelina Jolie Pitt', "Brad Pitt")
+imdb %>% filter(ator_1 %in% pessoas_que_atuam | ator_2 %in% pessoas_que_atuam |
+                  ator_3 %in% pessoas_que_atuam ) %>% View()
+
 
 # Negação
-imdb %>% filter(diretor %in% c("Quentin Tarantino", "Steven Spielberg"))
-imdb %>% filter(!diretor %in% c("Quentin Tarantino", "Steven Spielberg"))
+imdb %>% filter(diretor %in% c("Quentin Tarantino", "Steven Spielberg")) %>% View()
+imdb %>% filter(!diretor %in% c("Quentin Tarantino", "Steven Spielberg")) %>% View()
 
 # O que acontece com o NA?
 df <- tibble(x = c(1, NA, 3))
 
+df
+
 filter(df, x > 1)
+
 filter(df, is.na(x) | x > 1)
 
 # Filtrando texto sem correspondência exata
@@ -241,26 +304,39 @@ str_detect(
   pattern = "Action"
 )
 
-## Pegando apenas os filmes que 
+str_detect(
+  string = imdb$generos[1:6],
+  pattern = "Action|Animation"
+)
+
+## Pegando apenas os filmes que
 ## tenham o gênero ação
-imdb %>% filter(str_detect(generos, "Action"))
+imdb %>%
+  filter(str_detect(generos, "Action")) %>%
+  View()
+
+
+str_detect(
+  string = imdb$classificacao[1:10],
+  pattern = "13"
+)
 
 # mutate ------------------------------------------------------------------
 
 # Modificando uma coluna
 
-imdb %>% 
-  mutate(duracao = duracao/60) %>% 
+imdb %>%
+  mutate(duracao = duracao/60) %>%
   View()
 
 # Criando uma nova coluna
 
-imdb %>% 
-  mutate(duracao_horas = duracao/60) %>% 
+imdb %>%
+  mutate(duracao_horas = duracao/60) %>%
   View()
 
-imdb %>% 
-  mutate(lucro = receita - orcamento) %>% 
+imdb %>%
+  mutate(lucro = receita - orcamento) %>%
   View()
 
 # A função ifelse é uma ótima ferramenta
@@ -269,8 +345,9 @@ imdb %>%
 imdb %>% mutate(
   lucro = receita - orcamento,
   houve_lucro = ifelse(lucro > 0, "Sim", "Não")
-) %>% 
+) %>%
   View()
+
 
 # summarise ---------------------------------------------------------------
 
@@ -322,8 +399,8 @@ n_distinct()
 imdb %>% group_by(cor)
 
 # Agrupando e sumarizando
-imdb %>% 
-  group_by(cor) %>% 
+imdb %>%
+  group_by(cor) %>%
   summarise(
     media_orcamento = mean(orcamento, na.rm = TRUE),
     media_receita = mean(receita, na.rm = TRUE),
@@ -334,7 +411,7 @@ imdb %>%
 # left join ---------------------------------------------------------------
 
 # A função left join serve para juntarmos duas
-# tabelas a partir de uma chave. 
+# tabelas a partir de uma chave.
 # Vamos ver um exemplo bem simples.
 
 band_members
@@ -353,11 +430,11 @@ depara_cores <- tibble(
   cor_em_ptBR = c("colorido", "preto e branco")
 )
 
-left_join(imdb, depara_cores, by = c("cor")) 
+left_join(imdb, depara_cores, by = c("cor"))
 
-imdb %>% 
-  left_join(depara_cores, by = c("cor")) %>% 
-  select(cor, cor_em_ptBR) %>% 
+imdb %>%
+  left_join(depara_cores, by = c("cor")) %>%
+  select(cor, cor_em_ptBR) %>%
   View()
 
 # OBS: existe uma família de joins
