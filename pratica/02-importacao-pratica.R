@@ -33,6 +33,36 @@ imdb_1920 <- read_rds("dados/por_ano/imdb_1920.rds")
 # empilhar as bases
 dplyr::bind_rows(imdb_1916, imdb_1920)
 
+##### Solução com o for
+
+library(readr)
+
+todos_os_caminhos <- list.files(
+  "dados/por_ano",
+  full.names = TRUE,
+  pattern = ".rds"
+)
+
+imdb <- read_rds(todos_os_caminhos[1])
+
+
+for (caminho_para_arquivo in todos_os_caminhos[-1]) {
+  tab <- read_rds(caminho_para_arquivo)
+  imdb <- rbind(imdb, tab)
+}
+
+### outra solução
+
+imdb <- NULL
+# imdb <- data.frame() # tbm funciona
+# imdb <- tibble::tibble() # tbm funciona
+
+for (caminho_para_arquivo in todos_os_caminhos) {
+  tab <- read_rds(caminho_para_arquivo)
+  imdb <- rbind(imdb, tab)
+}
+
+
 
 # -------------------------------------------------------------------------
 
