@@ -58,6 +58,9 @@ imdb %>%
   slice_min(order_by = titulo, n = 10)
 
 
+# -------------------------------------------------------------------------
+
+
 # Tirar Nas da base
 
 imdb %>%
@@ -87,10 +90,89 @@ imdb %>%
 
 tibble::rownames_to_column(mtcars, "marca_do_carro") %>% as_tibble()
 
+# -------------------------------------------------------------------------
+
+# Vamos construir um ranking
+
+library(dplyr)
+# library(magrittr) # casa do pipe
+
+imdb <- readr::read_rds("dados/imdb.rds")
+
+ranking_lucro <- imdb %>%
+  mutate(lucro = receita - orcamento) %>%
+  # slice_max(lucro, n = 50) %>%
+  arrange(desc(lucro)) %>%
+  mutate(ranking_lucro = 1:n()) %>%
+  select(ranking_lucro, titulo, lucro)
+
+ranking_nota <- imdb %>%
+  # slice_max(nota_imdb, n = 50) %>%
+  arrange(desc(nota_imdb)) %>%
+  mutate(ranking_nota = 1:n()) %>%
+  select(ranking_nota, titulo, nota_imdb)
+
+left_join(
+  ranking_lucro,
+  ranking_nota,
+  by = "titulo"
+) %>% View()
+
+left_join(
+  ranking_nota,
+  ranking_lucro,
+  by = "titulo"
+) %>% View()
+
+imdb[1,]
+
+
+# -------------------------------------------------------------------------
+
+# group_by com outros verbos
+
+# pegar o filme de maior lucro para cada diretor
+
+imdb %>%
+  mutate(lucro = receita - orcamento) %>%
+  group_by(diretor) %>%
+  filter(lucro == max(lucro)) %>%
+  select(titulo, diretor, lucro) %>%
+  arrange(desc(lucro)) %>%
+  View()
+
+# filtrando tbm apenas diretores que fizeram 2 filmes ou mais
+imdb %>%
+  mutate(lucro = receita - orcamento) %>%
+  group_by(diretor) %>%
+  filter(lucro == max(lucro), n() >= 2) %>%
+  select(titulo, diretor, lucro) %>%
+  arrange(desc(lucro)) %>%
+  View()
 
 
 
+ranking_lucro <- imdb %>%
+  mutate(lucro = receita - orcamento) %>%
+  slice_max(lucro, n = 50) %>%
+  # arrange(desc(lucro)) %>%
+  mutate(ranking_lucro = 1:n()) %>%
+  select(ranking_lucro, titulo, lucro)
 
+ranking_nota <- imdb %>%
+  slice_max(nota_imdb, n = 50) %>%
+  # arrange(desc(nota_imdb)) %>%
+  mutate(ranking_nota = 1:n()) %>%
+  select(ranking_nota, titulo, nota_imdb)
+
+left_join(
+  ranking_lucro,
+  ranking_nota,
+  by = "titulo"
+) %>% View()
+
+imdb %>%
+  summarise(num_filmes = n())
 
 
 
