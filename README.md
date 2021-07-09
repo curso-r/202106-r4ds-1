@@ -50,17 +50,20 @@ Fora do horário de aula ou monitoria:
 
 ## Lição de casa
 
-| Aula | Descrição                                                                                                |
-|-----:|:---------------------------------------------------------------------------------------------------------|
-|    1 | [Exercícios — R como calculadora](https://livro.curso-r.com/3-2-r-como-calculadora.html#exerc%C3%ADcios) |
-|    1 | [Exercícios — Objetos](https://livro.curso-r.com/3-3-objetosfuncoes#exerc%C3%ADcios-1)                   |
-|    1 | [Ler a seção Vetores do nosso livro](https://livro.curso-r.com/3-6-vetores.html)                         |
-|    1 | [Exercícios — Vetores](https://livro.curso-r.com/3-6-vetores.html#exerc%C3%ADcios-3)                     |
-|    2 | [Ler a seções 5.1, 5.2 e 5.3 do nosso livro](https://livro.curso-r.com/5-importacao.html)                |
-|    2 | [Exercícios — Importação](https://livro.curso-r.com/5-2-readr.html#exerc%C3%ADcios-9)                    |
-|    3 | [Exercícios — Selecionando colunas](https://livro.curso-r.com/7-2-dplyr.html#exerc%C3%ADcios-11)         |
-|    3 | [Exercícios — Ordenando a base](https://livro.curso-r.com/7-2-dplyr.html#exerc%C3%ADcios-12)             |
-|    3 | [Exercícios — Pipe](https://livro.curso-r.com/6-1-o-operador-pipe.html#exerc%C3%ADcios-10)               |
+| Aula | Descrição                                                                                                                |
+|-----:|:-------------------------------------------------------------------------------------------------------------------------|
+|    1 | [Exercícios — R como calculadora](https://livro.curso-r.com/3-2-r-como-calculadora.html#exerc%C3%ADcios)                 |
+|    1 | [Exercícios — Objetos](https://livro.curso-r.com/3-3-objetosfuncoes#exerc%C3%ADcios-1)                                   |
+|    1 | [Ler a seção Vetores do nosso livro](https://livro.curso-r.com/3-6-vetores.html)                                         |
+|    1 | [Exercícios — Vetores](https://livro.curso-r.com/3-6-vetores.html#exerc%C3%ADcios-3)                                     |
+|    2 | [Ler a seções 5.1, 5.2 e 5.3 do nosso livro](https://livro.curso-r.com/5-importacao.html)                                |
+|    2 | [Exercícios — Importação](https://livro.curso-r.com/5-2-readr.html#exerc%C3%ADcios-9)                                    |
+|    3 | [Exercícios — Selecionando colunas](https://livro.curso-r.com/7-2-dplyr.html#exerc%C3%ADcios-11)                         |
+|    3 | [Exercícios — Ordenando a base](https://livro.curso-r.com/7-2-dplyr.html#exerc%C3%ADcios-12)                             |
+|    3 | [Exercícios — Pipe](https://livro.curso-r.com/6-1-o-operador-pipe.html#exerc%C3%ADcios-10)                               |
+|    4 | [Exercícios — Criando/modificando colunas](https://livro.curso-r.com/7-2-dplyr.html#modificando-e-criando-novas-colunas) |
+|    4 | [Exercícios — Sumarizando a base](https://livro.curso-r.com/7-2-dplyr.html#summarisando-a-base)                          |
+|    4 | [Exercícios — Joins](https://livro.curso-r.com/7-2-dplyr.html#juntando-duas-bases)                                       |
 
 ## Lição de casa extra 🤓
 
