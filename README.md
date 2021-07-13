@@ -7,24 +7,24 @@
 aqui](https://github.com/curso-r/main-r4ds-1/raw/master/material_do_curso.zip)
 para baixar o material do curso.
 
--   R for Data Science: <https://r4ds.had.co.nz/> (em inglês) e
+  - R for Data Science: <https://r4ds.had.co.nz/> (em inglês) e
     <https://es.r4ds.hadley.nz/> (em espanhol).
 
--   Nosso blog: <https://curso-r.com/blog/>
+  - Nosso blog: <https://curso-r.com/blog/>
 
 ## Dúvidas
 
 Fora do horário de aula ou monitoria:
 
--   perguntas gerais sobre o curso deverão ser feitas no Classroom.
+  - perguntas gerais sobre o curso deverão ser feitas no Classroom.
 
--   perguntas sobre R, principalmente as que envolverem código, deverão
+  - perguntas sobre R, principalmente as que envolverem código, deverão
     ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
 
 ## Slides
 
 | slide                              | link                                                                       |
-|:-----------------------------------|:---------------------------------------------------------------------------|
+| :--------------------------------- | :------------------------------------------------------------------------- |
 | slides/01-introducao-ao-curso.html | <https://curso-r.github.io/main-r4ds-1/slides/01-introducao-ao-curso.html> |
 | slides/02-introducao-ao-r.html     | <https://curso-r.github.io/main-r4ds-1/slides/02-introducao-ao-r.html>     |
 | slides/03-importacao.html          | <https://curso-r.github.io/main-r4ds-1/slides/03-importacao.html>          |
@@ -35,15 +35,16 @@ Fora do horário de aula ou monitoria:
 ### Parte teórica
 
 | script               | link                                                                   |
-|:---------------------|:-----------------------------------------------------------------------|
+| :------------------- | :--------------------------------------------------------------------- |
 | 01-introducao-ao-R.R | <https://curso-r.github.io/202106-r4ds-1/scripts/01-introducao-ao-R.R> |
 | 02-importacao.R      | <https://curso-r.github.io/202106-r4ds-1/scripts/02-importacao.R>      |
 | 03-manipulacao.R     | <https://curso-r.github.io/202106-r4ds-1/scripts/03-manipulacao.R>     |
+| 04-ggplot2.R         | <https://curso-r.github.io/202106-r4ds-1/scripts/04-ggplot2.R>         |
 
 ### Parte prática
 
 | script                  | link                                                                      |
-|:------------------------|:--------------------------------------------------------------------------|
+| :---------------------- | :------------------------------------------------------------------------ |
 | 01-rbase-pratica.R      | <https://curso-r.github.io/202106-r4ds-1/pratica/01-rbase-pratica.R>      |
 | 02-importacao-pratica.R | <https://curso-r.github.io/202106-r4ds-1/pratica/02-importacao-pratica.R> |
 | 03-manipulacao.R        | <https://curso-r.github.io/202106-r4ds-1/pratica/03-manipulacao.R>        |
@@ -51,7 +52,7 @@ Fora do horário de aula ou monitoria:
 ## Lição de casa
 
 | Aula | Descrição                                                                                                                |
-|-----:|:-------------------------------------------------------------------------------------------------------------------------|
+| ---: | :----------------------------------------------------------------------------------------------------------------------- |
 |    1 | [Exercícios — R como calculadora](https://livro.curso-r.com/3-2-r-como-calculadora.html#exerc%C3%ADcios)                 |
 |    1 | [Exercícios — Objetos](https://livro.curso-r.com/3-3-objetosfuncoes#exerc%C3%ADcios-1)                                   |
 |    1 | [Ler a seção Vetores do nosso livro](https://livro.curso-r.com/3-6-vetores.html)                                         |
@@ -64,11 +65,12 @@ Fora do horário de aula ou monitoria:
 |    4 | [Exercícios — Criando/modificando colunas](https://livro.curso-r.com/7-2-dplyr.html#modificando-e-criando-novas-colunas) |
 |    4 | [Exercícios — Sumarizando a base](https://livro.curso-r.com/7-2-dplyr.html#summarisando-a-base)                          |
 |    4 | [Exercícios — Joins](https://livro.curso-r.com/7-2-dplyr.html#juntando-duas-bases)                                       |
+|    5 | [Exercícios — ggplot2](https://livro.curso-r.com/8-1-o-pacote-ggplot2.html#exerc%C3%ADcios-17)                           |
 
 ## Lição de casa extra 🤓
 
 | Aula | Descrição                                                                                                               |
-|-----:|:------------------------------------------------------------------------------------------------------------------------|
+| ---: | :---------------------------------------------------------------------------------------------------------------------- |
 |    1 | [Ler o Capítulo 2 - RStudio do nosso livro](https://livro.curso-r.com/2-rstudio.html)                                   |
 |    1 | [Ler as seções 3.4 à 3.10 do nosso livro](https://livro.curso-r.com/3-4-data-frames.html)                               |
 |    1 | [Fazer exercícios das seções 3.7, 3.8 e 3.10](https://livro.curso-r.com/3-7-testes-l%C3%B3gicos.html#exerc%C3%ADcios-4) |
@@ -81,7 +83,7 @@ quando tiramos dúvidas (não necessariamente são relacionadas com o
 conteúdo da aula).
 
 | Aula | Tema                 | Descrição                                                                                                                                                          |
-|-----:|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---: | :------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    0 | Instalação           | [Capítulo do livro “Ciência de Dados em R”: Instalação](https://livro.curso-r.com/1-instalacao.html)                                                               |
 |    1 | Comunidades          | [R-Ladies - Dashboard](https://benubah.github.io/r-community-explorer/rladies.html)                                                                                |
 |    1 | Comunidades          | [Apresentação sobre a R-Ladies São Paulo](https://r-ladies-sao-paulo.github.io/RLadiesTheme/)                                                                      |
@@ -112,6 +114,15 @@ conteúdo da aula).
 |    4 | Manipulação de bases | [Pacote abjutils - Remover acentos de textos](https://github.com/abjur/abjutils)                                                                                   |
 |    4 | Manipulação de bases | [Pacote dbplyr: dplyr para quem usa SQL](https://dbplyr.tidyverse.org/articles/translation-verb.html)                                                              |
 |    4 | Joins - Unindo bases | [imagem sobre join](https://d33wubrfki0l68.cloudfront.net/aeab386461820b029b7e7606ccff1286f623bae1/ef0d4/diagrams/join-venn.png)                                   |
+|    5 | Boas práticas        | [Capítulo do livro “Zen do R”: .RData e .Rhistory](https://curso-r.github.io/zen-do-r/rdata-rhistory.html)                                                         |
+|    5 | Comunidades          | [R Brasil - Grupo no telegram](https://t.me/rbrasiloficial)                                                                                                        |
+|    5 | Comunidades          | [Apresentação sobre a R-Ladies São Paulo](https://r-ladies-sao-paulo.github.io/RLadiesTheme/)                                                                      |
+|    5 | Comunidades          | [Capítulos da R-Ladies no Brasil](https://github.com/R-Ladies-Sao-Paulo/RLadies-Brasil)                                                                            |
+|    5 | Comunidades          | [Pacote dados - Base de dados traduzidas](https://cienciadedatos.github.io/dados/)                                                                                 |
+|    5 | Gráficos             | [Folha de cola (cheatsheet): ggplot2](https://raw.githubusercontent.com/rstudio/cheatsheets/master/translations/portuguese/ggplot2-cheatsheet-portuguese.pdf)      |
+|    5 | Gráficos             | [Capítulo do livro “Ciência de Dados em R”: Gráficos](https://livro.curso-r.com/8-graficos.html)                                                                   |
+|    5 | Gráficos             | [Documentação da base sobre StarWars](https://dplyr.tidyverse.org/reference/starwars.html)                                                                         |
+|    5 | Gráficos             | [Especificações aestéticas do ggplot2](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html)                                                                  |
 
 ## Redes sociais da Curso-R
 
