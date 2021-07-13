@@ -323,11 +323,19 @@ str_detect(
 
 # mutate ------------------------------------------------------------------
 
+mutate(imdb, duracao = duracao/60) %>% View()
+
 # Modificando uma coluna
 
 imdb %>%
   mutate(duracao = duracao/60) %>%
   View()
+
+imdb_duracao_em_horas <- imdb %>%
+  mutate(duracao = duracao/60)
+
+
+# write_rds(imdb_duracao_em_horas, "imdb_duracao_em_horas.Rds")
 
 # Criando uma nova coluna
 
@@ -344,16 +352,65 @@ imdb %>%
 
 imdb %>% mutate(
   lucro = receita - orcamento,
-  houve_lucro = ifelse(lucro > 0, "Sim", "Não")
+  houve_lucro = if_else(lucro > 0, "Sim", "Não")
 ) %>%
   View()
+
+
+# sugestao do Bruno
+
+imdb %>% mutate(
+  lucro = receita - orcamento,
+  houve_lucro = lucro > 0
+) %>%
+  View()
+
+
+
+### PERGUNTA: como exportar o arquivo? ----
+
+imdb_lucro <- imdb %>% mutate(
+  lucro = receita - orcamento,
+  houve_lucro = if_else(lucro > 0, "Sim", "Não")
+)
+
+write_csv2(imdb_lucro, "dados/imdb_lucro.csv")
+writexl::write_xlsx(imdb_lucro, "dados/imdb_lucro.xlsx")
+
+# cria a pasta dados-export
+fs::dir_create("dados-export")
+
+imdb %>%
+  mutate(
+  lucro = receita - orcamento,
+  houve_lucro = if_else(lucro > 0, "Sim", "Não")
+) %>%
+  write_csv2("dados-export/imdb_lucro_pipe.csv")
+
+
+# USANDO TRUE E FALSE
+imdb %>% mutate(
+  lucro = receita - orcamento,
+  houve_lucro = if_else(lucro > 0, TRUE, FALSE)
+) %>%
+  View()
+
+?if_else()
+
+
 
 
 # summarise ---------------------------------------------------------------
 
 # Sumarizando uma coluna
 
-imdb %>% summarise(media_orcamento = mean(orcamento, na.rm = TRUE))
+imdb %>% summarise(media_orcamento = mean(orcamento, na.rm = TRUE),
+                   media_receita = mean(receita, na.rm = TRUE))
+
+# duvida: diferenca summary e summarize
+summary(imdb)
+glimpse(imdb)
+
 
 # repare que a saída ainda é uma tibble
 
@@ -381,6 +438,7 @@ imdb %>% summarise(
 )
 
 
+
 # funcoes que transformam -> N valores
 log(1:10)
 sqrt()
@@ -398,15 +456,33 @@ n_distinct()
 
 imdb %>% group_by(cor)
 
+imdb %>%
+  group_by(cor) %>%
+  summarise(qtd = n())
+
+imdb %>%
+  group_by(cor) %>%
+  summarise(media_orcamento = mean(orcamento, na.rm = TRUE))
+
+imdb %>%
+  group_by(diretor) %>%
+  summarise(qtd = n()) %>%
+  arrange(desc(qtd))
+
+
 # Agrupando e sumarizando
 imdb %>%
   group_by(cor) %>%
   summarise(
     media_orcamento = mean(orcamento, na.rm = TRUE),
+    qnt_orcamento_sem_na = sum(!is.na(orcamento)), # dupla
     media_receita = mean(receita, na.rm = TRUE),
     qtd = n(),
     qtd_diretores = n_distinct(diretor)
   )
+
+
+
 
 # left join ---------------------------------------------------------------
 
@@ -418,10 +494,19 @@ band_members
 band_instruments
 
 band_members %>% left_join(band_instruments)
+
+
 band_instruments %>% left_join(band_members)
 
 # o argumento 'by'
 band_members %>% left_join(band_instruments, by = "name")
+
+
+# o argumento 'by' - quando as bases tem colunas com nomes diferentes
+band_members %>%
+  rename("nome" = name) %>%
+  left_join(band_instruments, by = c("nome" = "name"))
+
 
 # Fazendo de-para
 
@@ -430,7 +515,9 @@ depara_cores <- tibble(
   cor_em_ptBR = c("colorido", "preto e branco")
 )
 
-left_join(imdb, depara_cores, by = c("cor"))
+left_join(imdb, depara_cores, by = c("cor")) %>%
+  relocate(cor_em_ptBR, .after = cor) %>%
+  View()
 
 imdb %>%
   left_join(depara_cores, by = c("cor")) %>%
@@ -443,4 +530,5 @@ band_instruments %>% left_join(band_members)
 band_instruments %>% right_join(band_members)
 band_instruments %>% inner_join(band_members)
 band_instruments %>% full_join(band_members)
+band_instruments %>% anti_join(band_members)
 
