@@ -202,6 +202,56 @@ imdb %>%
   labs(x = "Duração do filme", y = "Número de filmes")
 
 
+# denovo
+
+
+library(tidyverse)
+
+imdb <- read_rds("dados/imdb.rds")
+
+
+
+imdb %>%
+  mutate(
+    duracao_filme = case_when(
+      duracao < 60 ~ "Muito curto",
+      duracao >= 60 & duracao < 90  ~ "Curto",
+      duracao >= 90 & duracao < 120 ~ "Comum",
+      duracao >= 120 & duracao < 200 ~ "Longo",
+      duracao >= 200 ~ "Muito longo",
+      TRUE ~ "Não sei"
+
+    )
+  ) %>%
+  relocate(duracao_filme, .after = duracao) %>%
+  group_by(duracao_filme) %>%
+  summarise(frequencia = n()) %>%
+  mutate(duracao_filme = forcats::fct_relevel(
+    duracao_filme,
+    c("Muito curto", "Curto", "Comum",
+      "Longo", "Muito longo", "Não sei")
+  )) %>%
+  ggplot() +
+  geom_col(aes(x = duracao_filme,
+               y = frequencia,
+               fill = duracao_filme),
+           show.legend = FALSE) +
+  geom_label(aes(x = duracao_filme,
+                 y = frequencia + 150,
+                 label = frequencia)) +
+  #scale_fill_viridis_d() +
+  scale_fill_manual(values = c(
+    "#40E0D0",
+    "#48D1CC",
+    "#20B2AA",
+    "#008B8B",
+    "#008080",
+    "#A9A9A9"
+  )) +
+  theme_light() +
+  labs(x = "Duração do filme",
+       y = "Número de filmes")
+
 
 # Duvida Luiza: como filtrar datas? ---------
 
