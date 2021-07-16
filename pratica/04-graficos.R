@@ -115,3 +115,131 @@ dest_file <- "pratica/mananciais.csv"
 
 # fazer o download!
 download.file(url, dest_file)
+
+
+# Prática aula 2 ----
+# Criar categorias a partir de uma variável: case_when()
+# carregar o tidyverse
+library(tidyverse)
+# carregar a base
+imdb <- read_rds("dados/imdb.rds")
+
+# primeiro vamos criar a coluna duracao_filme, que
+# cria categorias a partir do valor de duracao_filme
+imdb %>%
+  arrange(duracao) %>%
+  mutate(
+    duracao_filme = case_when(
+      duracao < 60 ~ "Muito curto",
+      duracao >= 60 & duracao < 90 ~ "Curto",
+      duracao >= 90 & duracao < 120 ~ "Normal",
+      duracao >= 120 & duracao < 200 ~ "Longo",
+      duracao >= 200 ~ "Muito longo",
+      TRUE ~ "Não sei"
+    )
+  ) %>%
+  relocate(duracao_filme, .after = duracao) %>%
+  View()
+
+
+
+# criar o gráfico : versão 1
+imdb %>%
+  arrange(duracao) %>%
+  mutate(
+    duracao_filme = case_when(
+      duracao < 60 ~ "Muito curto",
+      duracao >= 60 & duracao < 90 ~ "Curto",
+      duracao >= 90 & duracao < 120 ~ "Comum",
+      duracao >= 120 & duracao < 200 ~ "Longo",
+      duracao >= 200 ~ "Muito longo",
+      TRUE ~ "Não sei"
+    )
+  ) %>%
+  relocate(duracao_filme, .after = duracao) %>%
+  count(duracao_filme, name = "frequencia") %>%
+  ggplot() +
+  geom_col(aes(x = duracao_filme, y = frequencia)) +
+  theme_light()
+
+
+# criar o gráfico: versão 2!
+# Com paleta de cores, e ordenando os fatores.
+
+paleta_de_cores_definida <- c("#40E0D0",
+                              "#48D1CC",
+                              "#20B2AA",
+                              "#008B8B",
+                              "#008080",
+                              "#A9A9A9")
+
+prismatic::color(paleta_de_cores_definida)
+
+
+imdb %>%
+  arrange(duracao) %>%
+  mutate(
+    duracao_filme = case_when(
+      duracao < 60 ~ "Muito curto",
+      duracao >= 60 & duracao < 90 ~ "Curto",
+      duracao >= 90 & duracao < 120 ~ "Comum",
+      duracao >= 120 & duracao < 200 ~ "Longo",
+      duracao >= 200 ~ "Muito longo",
+      TRUE ~ "Não sei"
+    )
+  ) %>%
+  relocate(duracao_filme, .after = duracao) %>%
+  count(duracao_filme, name = "frequencia") %>%
+  mutate(duracao_filme = forcats::fct_relevel(
+    duracao_filme,
+    c("Muito curto", "Curto", "Comum", "Longo", "Muito longo", "Não sei")
+  )) %>%
+  ggplot() +
+  geom_col(aes(x = duracao_filme, y = frequencia, fill = duracao_filme),
+           show.legend = FALSE) +
+  theme_light() +
+  scale_fill_manual(values = paleta_de_cores_definida) +
+  labs(x = "Duração do filme", y = "Número de filmes")
+
+
+
+# Duvida Luiza: como filtrar datas? ---------
+
+# carregar pacotes
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+# importar os dados, usei o import dataset
+mananciais <-
+  read_delim(
+    "https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv",
+    ";",
+    escape_double = FALSE,
+    col_types = cols(data = col_date(format = "%Y-%m-%d")),
+    locale = locale(decimal_mark = ",", grouping_mark = "."),
+    trim_ws = TRUE
+  )
+
+# repare que a coluna data é do tipo date
+mananciais %>% glimpse()
+
+mananciais %>%
+  # filtrar data a partir de...
+  filter(data >= "2020-01-01") %>%
+  arrange(data) %>% # ordenar
+  View()
+
+
+mananciais %>%
+  # filtrar por intervalo
+  filter(data >= "2020-01-01", data <= "2020-12-31") %>%
+  arrange(data) %>% # ordenar
+  View()
+
+
+mananciais %>%
+  # filtrar data exata
+  filter(data == "2021-07-15") %>%
+  arrange(data) %>% # ordenar
+  View()
