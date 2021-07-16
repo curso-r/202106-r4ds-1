@@ -7,6 +7,8 @@ library(tidyverse)
 
 library(readr)
 library(dplyr)
+library(ggplot2)
+
 
 imdb <- read_rds("dados/imdb.rds")
 
@@ -15,7 +17,6 @@ imdb <- imdb %>% mutate(lucro = receita - orcamento)
 
 # Gráfico de pontos (dispersão) -------------------------------------------
 
-library(ggplot2)
 
 # Apenas o canvas
 imdb %>%
@@ -160,12 +161,32 @@ imdb %>%
 
 # Número de filmes dos diretores da base
 imdb %>%
-  count(diretor) %>%
-  top_n(10, n) %>%
+  group_by(diretor) %>%
+  summarise(frequencia = n()) %>%
+  arrange(desc(frequencia))
+
+imdb %>%
+  tidyr::drop_na(diretor) %>%
+  # filter(!is.na(diretor)) %>%
+  count(diretor, sort = TRUE, name = "frequencia") %>%
+  slice_max(frequencia, n = 10) %>%
+  # top_n(10, frequencia) %>%
   ggplot() +
-  geom_col(aes(x = diretor, y = n))
+  geom_col(aes(x = diretor, y = frequencia))
 
 # Tirando NA e pintando as barras
+
+imdb %>%
+  tidyr::drop_na(diretor) %>%
+  count(diretor, sort = TRUE, name = "frequencia") %>%
+  slice_max(frequencia, n = 10) %>%
+  ggplot() +
+  geom_col(
+    aes(x = diretor, y = frequencia, fill = diretor),
+    show.legend = FALSE
+  )
+
+
 imdb %>%
   count(diretor) %>%
   filter(!is.na(diretor)) %>%
@@ -177,6 +198,18 @@ imdb %>%
   )
 
 # Invertendo as coordenadas
+
+imdb %>%
+  tidyr::drop_na(diretor) %>%
+  count(diretor, sort = TRUE, name = "frequencia") %>%
+  slice_max(frequencia, n = 10) %>%
+  ggplot() +
+  geom_col(
+    aes(y = diretor, x = frequencia, fill = diretor),
+    show.legend = FALSE
+  )
+
+
 imdb %>%
   count(diretor) %>%
   filter(!is.na(diretor)) %>%
@@ -189,6 +222,22 @@ imdb %>%
 
 
 # Ordenando as barras
+
+imdb %>%
+  tidyr::drop_na(diretor) %>%
+  count(diretor, sort = TRUE, name = "frequencia") %>%
+  slice_max(frequencia, n = 10) %>%
+  mutate(
+    diretor = forcats::fct_reorder(diretor, frequencia)
+  ) %>%
+  ggplot() +
+  geom_col(
+    aes(y = diretor, x = frequencia, fill = diretor),
+    show.legend = FALSE
+  )
+
+
+
 imdb %>%
   count(diretor) %>%
   filter(!is.na(diretor)) %>%
@@ -203,6 +252,26 @@ imdb %>%
   )
 
 # Colocando label nas barras
+
+imdb %>%
+  tidyr::drop_na(diretor) %>%
+  count(diretor, sort = TRUE, name = "frequencia") %>%
+  slice_max(frequencia, n = 10) %>%
+  mutate(
+    diretor = forcats::fct_reorder(diretor, frequencia)
+  ) %>%
+  ggplot() +
+  geom_col(
+    aes(y = diretor, x = frequencia, fill = diretor),
+    show.legend = FALSE
+  ) +
+  geom_label(aes(y = diretor, x = frequencia / 2, label = frequencia))
+
+
+
+
+
+
 top_10_diretores <- imdb %>%
   count(diretor) %>%
   filter(!is.na(diretor)) %>%
@@ -270,7 +339,8 @@ imdb %>%
     y = "Receita ($)",
     color = "Lucro ($)",
     title = "Gráfico de dispersão",
-    subtitle = "Receita vs Orçamento"
+    subtitle = "Receita vs Orçamento",
+    caption = "Fonte: imdb.com"
   )
 
 # Escalas
@@ -288,9 +358,9 @@ imdb %>%
   summarise(nota_media = mean(nota_imdb, na.rm = TRUE)) %>%
   ggplot() +
   geom_line(aes(x = ano, y = nota_media)) +
-  scale_x_continuous(breaks = seq(1916, 2016, 10)) +
+  scale_x_continuous(breaks = seq(1900, 2020, 10)) +
   scale_y_continuous(breaks = seq(0, 10, 2)) +
-  coord_cartesian(ylim = c(0, 10))
+  coord_cartesian(ylim = c(0, 10), xlim = c(1940, 2020))
 
 # Cores -------------------------------------------------------------------
 
@@ -355,6 +425,25 @@ imdb %>%
     subtitle = "Receita vs Orçamento"
   ) +
   theme(
-    plot.title = element_text(hjust = 0.5),
-    plot.subtitle = element_text(hjust = 0.5)
+    plot.title = element_text(hjust = -0.27),
+    plot.subtitle = element_text(hjust = -0.25),
+    panel.background = element_rect(fill = "orange")
   )
+
+# Dúvida matheus
+# gráfico usando duas tabelas diferentes
+
+tab_medianas <- imdb %>%
+  group_by(cor) %>%
+  summarise(mediana = median(receita, na.rm = TRUE))
+
+imdb %>%
+  tidyr::drop_na(receita) %>%
+  ggplot(aes(x = cor, y = receita)) +
+  geom_boxplot() +
+  geom_label(
+    data = tab_medianas,
+    aes(x = cor, y = mediana, label = mediana)
+  )
+
+
