@@ -200,3 +200,46 @@ imdb %>%
   theme_light() +
   scale_fill_manual(values = paleta_de_cores_definida) +
   labs(x = "Duração do filme", y = "Número de filmes")
+
+
+
+# Duvida Luiza: como filtrar datas? ---------
+
+# carregar pacotes
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+# importar os dados, usei o import dataset
+mananciais <-
+  read_delim(
+    "https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv",
+    ";",
+    escape_double = FALSE,
+    col_types = cols(data = col_date(format = "%Y-%m-%d")),
+    locale = locale(decimal_mark = ",", grouping_mark = "."),
+    trim_ws = TRUE
+  )
+
+# repare que a coluna data é do tipo date
+mananciais %>% glimpse()
+
+mananciais %>%
+  # filtrar data a partir de...
+  filter(data >= "2020-01-01") %>%
+  arrange(data) %>% # ordenar
+  View()
+
+
+mananciais %>%
+  # filtrar por intervalo
+  filter(data >= "2020-01-01", data <= "2020-12-31") %>%
+  arrange(data) %>% # ordenar
+  View()
+
+
+mananciais %>%
+  # filtrar data exata
+  filter(data == "2021-07-15") %>%
+  arrange(data) %>% # ordenar
+  View()
