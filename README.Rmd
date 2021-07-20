@@ -15,7 +15,7 @@ library(magrittr)
 
 main_repo <- "main-r4ds-1"
 turma <- "202106-r4ds-1"
-num_aula <- 6
+num_aula <- 7
 ```
 
 ## Referências do curso
@@ -42,8 +42,7 @@ knitr::kable(
     slide = CursoRutils:::list_github_files(main_repo, "slides/", "html"),
     link = paste0("https://curso-r.github.io/", main_repo, "/", slide)
   ) %>% 
-    dplyr::filter(!stringr::str_detect(slide, "_files/")) %>% 
-    dplyr::slice(1:5)
+    dplyr::filter(!stringr::str_detect(slide, "_files/")) 
 )
 ```
 
@@ -58,8 +57,7 @@ knitr::kable(
   tibble::tibble(
     script = list.files(pasta, pattern = "R$"),
     link = paste0("https://curso-r.github.io/", turma, "/", pasta, script)
-  ) %>% 
-    dplyr::slice(1:4)
+  ) 
 )
 ```
 
@@ -69,7 +67,7 @@ knitr::kable(
 pasta <- "pratica/"
 knitr::kable(
   tibble::tibble(
-    script = list.files(pasta, pattern = "R$"),
+    script = list.files(pasta, pattern = "R$|.Rmd"),
     link = paste0("https://curso-r.github.io/", turma, "/", pasta, script)
   )
 )
@@ -118,7 +116,7 @@ googlesheets4::gs4_deauth()
 
 
 Youtube: https://www.youtube.com/c/CursoR6/featured
-
+https://docs.google.com/forms/d/e/1FAIpQLScdp98zBnCLhihJLhi_vB8e3nG0Or03TAm6mS-qqjv-LH4ERg/viewform
 Instagram: https://www.instagram.com/cursoo_r/
 
 Twitter: https://twitter.com/curso_r

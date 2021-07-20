@@ -7,24 +7,24 @@
 aqui](https://github.com/curso-r/main-r4ds-1/raw/master/material_do_curso.zip)
 para baixar o material do curso.
 
-  - R for Data Science: <https://r4ds.had.co.nz/> (em inglês) e
+-   R for Data Science: <https://r4ds.had.co.nz/> (em inglês) e
     <https://es.r4ds.hadley.nz/> (em espanhol).
 
-  - Nosso blog: <https://curso-r.com/blog/>
+-   Nosso blog: <https://curso-r.com/blog/>
 
 ## Dúvidas
 
 Fora do horário de aula ou monitoria:
 
-  - perguntas gerais sobre o curso deverão ser feitas no Classroom.
+-   perguntas gerais sobre o curso deverão ser feitas no Classroom.
 
-  - perguntas sobre R, principalmente as que envolverem código, deverão
+-   perguntas sobre R, principalmente as que envolverem código, deverão
     ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
 
 ## Slides
 
 | slide                              | link                                                                       |
-| :--------------------------------- | :------------------------------------------------------------------------- |
+|:-----------------------------------|:---------------------------------------------------------------------------|
 | slides/01-introducao-ao-curso.html | <https://curso-r.github.io/main-r4ds-1/slides/01-introducao-ao-curso.html> |
 | slides/02-introducao-ao-r.html     | <https://curso-r.github.io/main-r4ds-1/slides/02-introducao-ao-r.html>     |
 | slides/03-importacao.html          | <https://curso-r.github.io/main-r4ds-1/slides/03-importacao.html>          |
@@ -36,7 +36,7 @@ Fora do horário de aula ou monitoria:
 ### Parte teórica
 
 | script               | link                                                                   |
-| :------------------- | :--------------------------------------------------------------------- |
+|:---------------------|:-----------------------------------------------------------------------|
 | 01-introducao-ao-R.R | <https://curso-r.github.io/202106-r4ds-1/scripts/01-introducao-ao-R.R> |
 | 02-importacao.R      | <https://curso-r.github.io/202106-r4ds-1/scripts/02-importacao.R>      |
 | 03-manipulacao.R     | <https://curso-r.github.io/202106-r4ds-1/scripts/03-manipulacao.R>     |
@@ -44,17 +44,20 @@ Fora do horário de aula ou monitoria:
 
 ### Parte prática
 
-| script                  | link                                                                      |
-| :---------------------- | :------------------------------------------------------------------------ |
-| 01-rbase-pratica.R      | <https://curso-r.github.io/202106-r4ds-1/pratica/01-rbase-pratica.R>      |
-| 02-importacao-pratica.R | <https://curso-r.github.io/202106-r4ds-1/pratica/02-importacao-pratica.R> |
-| 03-manipulacao.R        | <https://curso-r.github.io/202106-r4ds-1/pratica/03-manipulacao.R>        |
-| 04-graficos.R           | <https://curso-r.github.io/202106-r4ds-1/pratica/04-graficos.R>           |
+| script                   | link                                                                      |
+|:-------------------------|:--------------------------------------------------------------------------|
+| 01-rbase-pratica.R       | <https://curso-r.github.io/202106-r4ds-1/pratica/01-rbase-pratica.R>      |
+| 02-importacao-pratica.R  | <https://curso-r.github.io/202106-r4ds-1/pratica/02-importacao-pratica.R> |
+| 03-manipulacao.R         | <https://curso-r.github.io/202106-r4ds-1/pratica/03-manipulacao.R>        |
+| 04-graficos.R            | <https://curso-r.github.io/202106-r4ds-1/pratica/04-graficos.R>           |
+| exemplo\_pretty\_doc.Rmd | <https://curso-r.github.io/202106-r4ds-1/pratica/exemplo_pretty_doc.Rmd>  |
+| exemplos.Rmd             | <https://curso-r.github.io/202106-r4ds-1/pratica/exemplos.Rmd>            |
+| html\_letter.Rmd         | <https://curso-r.github.io/202106-r4ds-1/pratica/html_letter.Rmd>         |
 
 ## Lição de casa
 
 | Aula | Descrição                                                                                                                |
-| ---: | :----------------------------------------------------------------------------------------------------------------------- |
+|-----:|:-------------------------------------------------------------------------------------------------------------------------|
 |    1 | [Exercícios — R como calculadora](https://livro.curso-r.com/3-2-r-como-calculadora.html#exerc%C3%ADcios)                 |
 |    1 | [Exercícios — Objetos](https://livro.curso-r.com/3-3-objetosfuncoes#exerc%C3%ADcios-1)                                   |
 |    1 | [Ler a seção Vetores do nosso livro](https://livro.curso-r.com/3-6-vetores.html)                                         |
@@ -72,7 +75,7 @@ Fora do horário de aula ou monitoria:
 ## Lição de casa extra 🤓
 
 | Aula | Descrição                                                                                                               |
-| ---: | :---------------------------------------------------------------------------------------------------------------------- |
+|-----:|:------------------------------------------------------------------------------------------------------------------------|
 |    1 | [Ler o Capítulo 2 - RStudio do nosso livro](https://livro.curso-r.com/2-rstudio.html)                                   |
 |    1 | [Ler as seções 3.4 à 3.10 do nosso livro](https://livro.curso-r.com/3-4-data-frames.html)                               |
 |    1 | [Fazer exercícios das seções 3.7, 3.8 e 3.10](https://livro.curso-r.com/3-7-testes-l%C3%B3gicos.html#exerc%C3%ADcios-4) |
@@ -85,7 +88,7 @@ quando tiramos dúvidas (não necessariamente são relacionadas com o
 conteúdo da aula).
 
 | Aula | Tema                 | Descrição                                                                                                                                                          |
-| ---: | :------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----:|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    0 | Instalação           | [Capítulo do livro “Ciência de Dados em R”: Instalação](https://livro.curso-r.com/1-instalacao.html)                                                               |
 |    1 | Comunidades          | [R-Ladies - Dashboard](https://benubah.github.io/r-community-explorer/rladies.html)                                                                                |
 |    1 | Comunidades          | [Apresentação sobre a R-Ladies São Paulo](https://r-ladies-sao-paulo.github.io/RLadiesTheme/)                                                                      |
@@ -147,11 +150,28 @@ conteúdo da aula).
 |    6 | Gráficos             | [Pacotes do tidyverse](https://www.tidyverse.org/packages/)                                                                                                        |
 |    6 | Gráficos             | [Paletas de cores hexadecimais](https://coolors.co/generate)                                                                                                       |
 |    6 | Gráficos             | [Pacote prismatic::color(colors())](https://emilhvitfeldt.github.io/prismatic/)                                                                                    |
+|    7 | Caminhos             | [Pacote here](https://here.r-lib.org/)                                                                                                                             |
+|    7 | Comunidades          | [Curso-R Entrevista - Adriana Silva](https://www.youtube.com/watch?v=QAv8566nHEk)                                                                                  |
+|    7 | Relatórios           | [Capítulo do livro “Ciência de Dados em R”: Relatórios](https://livro.curso-r.com/9-relatorios.html)                                                               |
+|    7 | Relatórios           | [Cheatsheet RMarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)                                                                 |
+|    7 | Relatórios           | [Netlify Drop](https://app.netlify.com/drop)                                                                                                                       |
+|    7 | Relatórios           | [Knitr: mudando o diretório de trabalho](https://blog.curso-r.com/posts/2017-03-25-knitr-mudando-diretorio-de-trabalho/)                                           |
+|    7 | Relatórios           | [Pacote xaringan: Addin infinite moon reader](https://github.com/yihui/xaringan)                                                                                   |
+|    7 | Relatórios           | [Pacote prettydoc](https://prettydoc.statr.me/)                                                                                                                    |
+|    7 | Relatórios           | [Instalação LaTeX](https://livro.curso-r.com/1-3-instalacao-adicionais.html#latex)                                                                                 |
+|    7 | Relatórios           | [Escala de cores: Viridis](https://ggplot2.tidyverse.org/reference/scale_viridis.html)                                                                             |
+|    7 | Relatórios           | [Pacote Geobr](https://ipeagit.github.io/geobr/)                                                                                                                   |
+|    7 | Trabalho Final       | [Dicas para formatar tabelas](https://www.curso-r.com/blog/2020-12-03-dicas-relatorios-r4ds1_tabelas/)                                                             |
+|    7 | Trabalho Final       | [Dicas para formatar gráficos](https://www.curso-r.com/blog/2020-17-02-dicas-relatorios-r4ds1_graficos/)                                                           |
+|    7 | Trabalho Final       | [Dicas para elaborar relatórios](https://blog.curso-r.com/posts/2021-03-15-dicas-relatorios-r4ds1_relatorios/)                                                     |
+|    7 | Relatórios           | [Equações em LaTeX](https://en.wikibooks.org/wiki/LaTeX/Mathematics)                                                                                               |
+|    7 | Relatórios           | [Documentação do pacote ggplot2](https://github.com/yixuan/prettydoc/)                                                                                             |
+|    7 | Relatórios           | [Exemplos de documentos criados com RMarkdown](https://curso-r.github.io/main-visualizacao/slides/02-introducao-rmd.html#5)                                        |
 
 ## Redes sociais da Curso-R
 
 Youtube: <https://www.youtube.com/c/CursoR6/featured>
-
+<https://docs.google.com/forms/d/e/1FAIpQLScdp98zBnCLhihJLhi_vB8e3nG0Or03TAm6mS-qqjv-LH4ERg/viewform>
 Instagram: <https://www.instagram.com/cursoo_r/>
 
 Twitter: <https://twitter.com/curso_r>
