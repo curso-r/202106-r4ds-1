@@ -21,6 +21,13 @@ Fora do horário de aula ou monitoria:
 -   perguntas sobre R, principalmente as que envolverem código, deverão
     ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
 
+## Trabalhos finais premiados
+
+| script             | link                                                                          |
+|:-------------------|:------------------------------------------------------------------------------|
+| Luiza_Depieri.html | <https://curso-r.github.io/202106-r4ds-1/trabalhos_finais/Luiza_Depieri.html> |
+| Victor_Dogo.html   | <https://curso-r.github.io/202106-r4ds-1/trabalhos_finais/Victor_Dogo.html>   |
+
 ## Slides
 
 | slide                              | link                                                                       |
@@ -44,15 +51,16 @@ Fora do horário de aula ou monitoria:
 
 ### Parte prática
 
-| script                   | link                                                                      |
-|:-------------------------|:--------------------------------------------------------------------------|
-| 01-rbase-pratica.R       | <https://curso-r.github.io/202106-r4ds-1/pratica/01-rbase-pratica.R>      |
-| 02-importacao-pratica.R  | <https://curso-r.github.io/202106-r4ds-1/pratica/02-importacao-pratica.R> |
-| 03-manipulacao.R         | <https://curso-r.github.io/202106-r4ds-1/pratica/03-manipulacao.R>        |
-| 04-graficos.R            | <https://curso-r.github.io/202106-r4ds-1/pratica/04-graficos.R>           |
-| exemplo\_pretty\_doc.Rmd | <https://curso-r.github.io/202106-r4ds-1/pratica/exemplo_pretty_doc.Rmd>  |
-| exemplos.Rmd             | <https://curso-r.github.io/202106-r4ds-1/pratica/exemplos.Rmd>            |
-| html\_letter.Rmd         | <https://curso-r.github.io/202106-r4ds-1/pratica/html_letter.Rmd>         |
+| script                  | link                                                                      |
+|:------------------------|:--------------------------------------------------------------------------|
+| 01-rbase-pratica.R      | <https://curso-r.github.io/202106-r4ds-1/pratica/01-rbase-pratica.R>      |
+| 02-importacao-pratica.R | <https://curso-r.github.io/202106-r4ds-1/pratica/02-importacao-pratica.R> |
+| 03-manipulacao.R        | <https://curso-r.github.io/202106-r4ds-1/pratica/03-manipulacao.R>        |
+| 04-graficos.R           | <https://curso-r.github.io/202106-r4ds-1/pratica/04-graficos.R>           |
+| exemplo_pretty_doc.Rmd  | <https://curso-r.github.io/202106-r4ds-1/pratica/exemplo_pretty_doc.Rmd>  |
+| exemplos.Rmd            | <https://curso-r.github.io/202106-r4ds-1/pratica/exemplos.Rmd>            |
+| html_letter.Rmd         | <https://curso-r.github.io/202106-r4ds-1/pratica/html_letter.Rmd>         |
+| tabelas.Rmd             | <https://curso-r.github.io/202106-r4ds-1/pratica/tabelas.Rmd>             |
 
 ## Lição de casa
 

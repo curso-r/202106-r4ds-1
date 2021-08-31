@@ -34,6 +34,29 @@ Fora do horário de aula ou monitoria:
 
 - perguntas sobre R, principalmente as que envolverem código, deverão ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
 
+## Trabalhos finais premiados
+
+```{r echo=FALSE}
+nome_pasta <- "trabalhos_finais"
+
+
+# https://curso-r.github.io/202106-r4ds-1/trabalhos_finais/Luiza_Depieri.html
+
+
+tibble::tibble(
+  script = list.files(nome_pasta, recursive = FALSE),
+  link = paste0(
+    "https://curso-r.github.io/",
+    turma, "/",
+    nome_pasta, "/",
+    script
+  )
+) %>% 
+  knitr::kable()
+
+
+```
+
 ## Slides
 
 ```{r}
